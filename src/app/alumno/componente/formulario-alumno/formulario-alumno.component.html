@@ -1,0 +1,114 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="container col-12">
+        <div class="row">
+            <span>
+                <h4> {{title}} </h4>
+            </span>
+        </div>
+        <form class="text-center" [formGroup]="estudianteFG">
+            <div class="row" >
+                <div class="col-12 ">
+                    <mat-form-field class="col-4 ">
+                        <mat-label>Nombre</mat-label>
+                        <input type="text" matInput formControlName="nombre" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo. Raymundo" class="form-control"> 
+                        <mat-error *ngIf="nombre.hasError('nombre') && !nombre.hasError('required')">
+                            Por favor ingrese un nombre
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('required')">
+                            El nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-4 ">
+                        <mat-label>Apellido Paterno</mat-label>
+                        <input type="text" matInput formControlName="apellido1" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo. Mayen" class="form-control">
+                        <mat-error *ngIf="apellido1.hasError('apellidoPaterno') && !apellido1.hasError('required')">
+                            Por favor ingrese un nombre
+                        </mat-error>
+                        <mat-error *ngIf="apellido1.hasError('required')">
+                            Apellido paterno es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-4 ">
+                        <mat-label>Apellido Materno</mat-label>
+                        <input type="text" matInput formControlName="apellido2"
+                            placeholder="Ejemplo. Ortiz" class="form-control">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-12 ">
+                    <mat-form-field class="col-7">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo rmayen@example.com" class="form-control">
+                        <mat-error *ngIf="email.hasError('mail') && !email.hasError('required')">
+                            Ingrese direccion de correo valido
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-5">
+                        <mat-label>Telefono</mat-label>
+                        <input type="text" matInput formControlName="numeroTelefono" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo 5512345678" class="form-control">
+                        <mat-error *ngIf="numeroTelefono.hasError('telefono') && !numeroTelefono.hasError('required')">
+                            Ingrese numero de telefono valido
+                        </mat-error>
+                        <mat-error *ngIf="numeroTelefono.hasError('required')">
+                            Telefono es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-12 ">
+                    <mat-form-field class="col-4">
+                        <mat-label>Fecha Nacimiento</mat-label>
+                        <input type="text" matInput formControlName="fechaNacimiento" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo 30-06-1988" class="form-control">
+                        <mat-error *ngIf="fechaNacimiento.hasError('required')">
+                            Fecha de nacimiento es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-4">
+                        <mat-label>Edad</mat-label>
+                        <input type="text" matInput formControlName="edad" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo 34" class="form-control">
+                        <mat-error *ngIf="edad.hasError('required')">
+                            Edad es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-4">
+                        <mat-label>Matricula</mat-label>
+                        <input type="text" matInput formControlName="matricula" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo 208366000" class="form-control">
+                        <mat-error *ngIf="matricula.hasError('required')">
+                            Matricula es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>  
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-12 ">
+                    <mat-form-field class="col-12">
+                        <mat-label>Url Imagen</mat-label>
+                        <input type="text" matInput formControlName="urlImagen" [errorStateMatcher]="matcher"
+                            placeholder="Ejemplo " class="form-control">
+                        <mat-error *ngIf="urlImagen.hasError('required')">
+                            Url Imagen es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                                      
+                </div>
+            </div>
+            <div class="example-button-row">
+                <button type="button" mat-raised-button (click)="edit ? updateRegistro() : guardarRegistro()" [disabled]="estudianteFG.invalid">Guardar</button>
+                <button type="button" mat-raised-button color="warn" [routerLink]="['/alumno/lista']">Cancelar</button>
+              </div>
+        </form>
+    </div>
+</div>

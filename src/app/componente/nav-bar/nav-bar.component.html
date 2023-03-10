@@ -1,0 +1,28 @@
+<div class="bg-dark text-light bg-dark">
+    <div class="container">
+        <nav class="navbar navCustom navbar-dark bg-dark">
+            <div class="mb-0 h5">Escuela de codigo
+                <button mat-button [matMenuTriggerFor]="animals" class="text-light bg-dark "> <mat-icon >reorder</mat-icon></button>
+                <mat-menu #animals="matMenu">
+                    <button mat-menu-item [matMenuTriggerFor]="alumnos">Alumnos</button>
+                    <button mat-menu-item [matMenuTriggerFor]="cursos">Cursos</button>
+                    <button mat-menu-item [matMenuTriggerFor]="inscripciones">Inscripciones</button>
+                </mat-menu>
+
+                <mat-menu #alumnos="matMenu">
+                    <button mat-menu-item routerLink="/alumno/nuevo">Nuevo Alumno</button>
+                    <button mat-menu-item routerLink="/alumno/lista">lista Alumno</button>
+                </mat-menu>
+
+                <mat-menu #cursos="matMenu">
+                    <button mat-menu-item routerLink="/cursos/nuevo">Nuevo Curso</button>
+                    <button mat-menu-item routerLink="/cursos/lista">Lista Cursos</button>
+                </mat-menu>
+
+                <mat-menu #inscripciones="matMenu">
+                    <button mat-menu-item>Lista Inscripciones</button>
+                </mat-menu>
+            </div>
+        </nav>
+    </div>
+</div>

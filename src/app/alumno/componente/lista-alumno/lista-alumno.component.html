@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="container col-12">
+        <div class="row">
+            <span>
+                <h4 appCabecerasTitulos20> {{title}} </h4>
+            </span>
+        </div>
+    </div>
+    <div class="container col-12">
+        <div class="row" *ngIf="dataSource$ | async as dataSource">
+            <div class="col-3 my-2" *ngFor="let estudiante of dataSource">
+                <div class="card border-info" style="width: 18rem;">
+                    <img src={{estudiante.urlImagen}} class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{estudiante | nombreCompleto}}</h5>
+                        <p class="card-text">{{estudiante.matricula}}</p>
+                        <p class="card-text">
+                            <a [routerLink]="['/alumno/editar',  estudiante.id]" >Editar</a>
+                        </p>
+                        <p class="card-text">
+                            <a type="button" (click)="elimnarAlumno(estudiante)" >Eliminar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

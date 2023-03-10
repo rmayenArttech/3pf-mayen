@@ -1,0 +1,12 @@
+<div>
+    <h2>Iniciar sesión</h2>
+    <form  (ngSubmit)="onSubmit()" [formGroup]="loginGroup">
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="User" formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput class="form-control" placeholder="Password" formControlName="password" type="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+    </form>
+  </div>
